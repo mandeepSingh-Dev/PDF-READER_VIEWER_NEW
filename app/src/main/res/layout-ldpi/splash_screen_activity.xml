@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/ic__422509_acorbat_logo_pdf_file_icon"
+        android:src="@drawable/extpdficon2"
         android:layout_gravity="center"
         android:soundEffectsEnabled="true"
         />

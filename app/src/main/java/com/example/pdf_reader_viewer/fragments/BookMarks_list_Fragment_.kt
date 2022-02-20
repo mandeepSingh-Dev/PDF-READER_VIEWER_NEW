@@ -32,10 +32,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import java.lang.Exception
 
 class BookMarks_list_Fragment_ : Fragment() {
@@ -83,6 +80,8 @@ class BookMarks_list_Fragment_ : Fragment() {
                     Log.d("3tubuenfe", "3ufufbkscsdc")
                     binding?.emptyView?.visibility = View.VISIBLE
                     binding?.emptyText?.visibility = View.VISIBLE
+                    binding?.emptyText2?.visibility = View.VISIBLE
+
 
                     binding?.bookmarkProgress?.visibility = View.GONE
                 }else {
@@ -97,6 +96,8 @@ class BookMarks_list_Fragment_ : Fragment() {
                     binding?.bookmarkProgress?.visibility = View.GONE
                     binding?.emptyView?.visibility = View.GONE
                     binding?.emptyText?.visibility = View.GONE
+                    binding?.emptyText2?.visibility = View.GONE
+
 
 
                     adapter?.setMCustomClickListenr(object : MCustomOnClickListener {
@@ -193,11 +194,17 @@ class BookMarks_list_Fragment_ : Fragment() {
         deleteLinearLayout.setOnClickListener {
             try {
                 Log.d("in3g3", position.toString())
-                var intt = context?.contentResolver?.delete(Uri.parse(pdflist?.get(position)?.pdfUri!!), null, null)
-                bottomSheetDialog?.hide()
-                pdflist?.remove(pdflist?.get(position))
-                myAdapter.notifyItemRemoved(position)
-                myAdapter.notifyItemRangeChanged(position, pdflist?.size!!)
+              //  var intt = context?.contentResolver?.delete(Uri.parse(pdflist?.get(position)?.pdfUri!!), null, null)
+                CoroutineScope(Dispatchers.IO).launch {
+                    MyRoomDatabase2?.getInstance(requireContext()).daoMethods().delete(pdflist?.get(position))
+
+                    withContext(Dispatchers.Main) {
+                    bottomSheetDialog?.hide()
+                        pdflist?.remove(pdflist?.get(position))
+                        myAdapter.notifyItemRemoved(position)
+                        myAdapter.notifyItemRangeChanged(position, pdflist?.size!!)
+                    }//withcontext closed
+                }//coroutine closed
             }catch (e: Exception){
                 Toast.makeText(requireContext(),e.message, Toast.LENGTH_SHORT).show()}
         }

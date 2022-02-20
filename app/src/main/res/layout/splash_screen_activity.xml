@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="16dp"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:background="@drawable/splashbakground"
     android:paddingBottom="16dp">
 
     <ImageView
+        android:id="@+id/applogoimageview"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:src="@drawable/ic__422509_acorbat_logo_pdf_file_icon"
+        android:layout_height="70dp"
+        android:src="@drawable/extpdficon2"
         android:layout_gravity="center"
-        android:soundEffectsEnabled="true" />
-</LinearLayout>
+        android:soundEffectsEnabled="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"        />
+
+    <TextView
+        android:id="@+id/appnametextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PDF Reader/Editor"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:elevation="5dp"
+        android:textColor="@color/textcolor"
+        android:textSize="15sp"
+        android:fontFamily="@font/candal"
+        app:layout_constraintLeft_toLeftOf="@id/applogoimageview"
+        app:layout_constraintRight_toRightOf="@id/applogoimageview"
+        app:layout_constraintTop_toBottomOf="@id/applogoimageview"
+         />
+</androidx.constraintlayout.widget.ConstraintLayout>

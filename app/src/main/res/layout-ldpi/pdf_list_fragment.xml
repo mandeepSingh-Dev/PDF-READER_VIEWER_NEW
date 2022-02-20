@@ -98,7 +98,7 @@
             android:layout_centerInParent="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="50dp"
-            android:src="@drawable/ic_pdf_icon"
+            android:src="@drawable/extpdficon2"
           />
         <!--empty textview-->
         <TextView

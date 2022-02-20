@@ -7,7 +7,7 @@
         android:id="@+id/selectedImagesBitmap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_pdf_icon"
+        android:src="@mipmap/extpdficon1"
         android:padding="10dp"
         app:strokeColor="@color/white"
         app:strokeWidth="5dp"

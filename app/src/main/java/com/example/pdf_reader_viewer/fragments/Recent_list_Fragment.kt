@@ -94,6 +94,7 @@ class Recent_list_Fragment : Fragment() {
                                Log.d("3tubuenfe", "3ufufbkscsdc")
                                binding?.emptyView?.visibility = View.VISIBLE
                                binding?.emptyText?.visibility = View.VISIBLE
+                               binding?.emptyText2?.visibility = View.VISIBLE
 
                                binding?.recentProgress?.visibility = View.GONE
                            }
@@ -112,6 +113,7 @@ class Recent_list_Fragment : Fragment() {
                            binding?.recentProgress?.visibility = View.GONE
                                binding?.emptyView?.visibility = View.GONE
                                binding?.emptyText?.visibility = View.GONE
+                               binding?.emptyText2?.visibility = View.GONE
 
                            myAdapter?.setMCustomClickListenr(object : MCustomOnClickListener {
                                override fun onClick(position: Int) {
@@ -198,11 +200,17 @@ class Recent_list_Fragment : Fragment() {
         deleteLinearLayout?.setOnClickListener {
             try {
                 Log.d("in3g3", position.toString())
-                var intt = context?.contentResolver?.delete(Uri.parse(pdflist?.get(position)?.pdfUri!!), null, null)
-                bottomSheetDialog?.hide()
-                pdflist?.remove(pdflist?.get(position))
-                myAdapter.notifyItemRemoved(position)
-                myAdapter.notifyItemRangeChanged(position, pdflist?.size!!)
+              //  var intt = context?.contentResolver?.delete(Uri.parse(pdflist?.get(position)?.pdfUri!!), null, null)
+               CoroutineScope(Dispatchers.IO).launch {
+                   MyRoomDatabase?.getInstance(requireContext()).daoMethod().delete(pdflist?.get(position))
+
+                   withContext(Dispatchers.Main) {
+                       bottomSheetDialog?.hide()
+                       pdflist?.remove(pdflist?.get(position))
+                       myAdapter.notifyItemRemoved(position)
+                       myAdapter.notifyItemRangeChanged(position, pdflist?.size!!)
+                   }
+               }
             }catch (e: Exception){Toast.makeText(requireContext(),e.message,Toast.LENGTH_SHORT).show()}
         }
 

@@ -3,7 +3,7 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24"
-    android:tint="#FF0000"
+    android:tint="@color/toolsIconcolor"
     android:autoMirrored="true">
   <path
       android:fillColor="@color/purple_700"

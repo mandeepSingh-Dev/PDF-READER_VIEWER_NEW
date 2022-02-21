@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Pdf_reader_editor.pdf_reader_viewer.PdfView_Activity">
+    tools:context="com.example.pdf_reader_viewer.PdfView_Activity">
 
     <TextView
         android:id="@+id/pdfTitle"

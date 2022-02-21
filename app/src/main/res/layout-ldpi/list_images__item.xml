@@ -21,10 +21,10 @@
         android:layout_height="wrap_content"
         android:text="dkhdw"
         android:textColor="@color/textcolor"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/selectedImagesBitmap"
         app:layout_constraintLeft_toLeftOf="@id/selectedImagesBitmap"
 />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

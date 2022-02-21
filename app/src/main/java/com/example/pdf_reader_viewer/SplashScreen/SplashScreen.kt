@@ -15,7 +15,7 @@ class SplashScreen : AppCompatActivity() {
 
 
         CoroutineScope(Dispatchers.IO).launch {
-            delay(300)
+            delay(600)
 
             startActivity(Intent(applicationContext,
                 com.example.pdf_reader_viewer.MainActivity_ViewPagerHolder::class.java))

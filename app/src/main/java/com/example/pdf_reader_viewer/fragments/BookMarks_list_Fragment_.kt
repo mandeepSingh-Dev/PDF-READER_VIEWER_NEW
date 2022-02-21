@@ -210,7 +210,8 @@ class BookMarks_list_Fragment_ : Fragment() {
 
         //to bookmark the pdf into database
         bookmarkIcon_bottomsheet.setOnClickListener {
-            CoroutineScope(Dispatchers.Main).launch { addBookmarks(Uri.parse(pdfUri),pdfName,pdfSize,date.toLong())
+            CoroutineScope(Dispatchers.Main).launch {
+                addBookmarks(Uri.parse(pdfUri),pdfName,pdfSize,date.toLong())
                 Log.d("38f3gh7fg3h","bookmark")
                 bookmarkIcon_bottomsheet.visibility=View.GONE
 

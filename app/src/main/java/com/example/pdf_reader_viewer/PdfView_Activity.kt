@@ -5,6 +5,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +45,8 @@ class PdfView_Activity : AppCompatActivity() {
         binding = ActivityPdfViewBinding.inflate(LayoutInflater.from(this))
         setContentView(binding?.root)
      //Log.d("efjhfe",intent?.action!!)
+
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#990012")))
 
         if(intent?.action?.equals(PDFProp.MY_OPEN_ACTION)!!) {
             var pdfuri_String = intent.extras?.getString(PDFProp.PDF_APPENDED_URI)
@@ -136,9 +140,6 @@ class PdfView_Activity : AppCompatActivity() {
         Log.d("sdifhuebfvd",isnotificationEnabled!!)
 
         if (urii.scheme.equals("content")) {
-
-
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 var values = ContentValues()
                 values.put(MediaStore.Files.FileColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)

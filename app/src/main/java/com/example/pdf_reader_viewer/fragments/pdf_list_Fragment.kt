@@ -525,57 +525,14 @@ class pdf_list_Fragment : Fragment() {
         initializeBottomsheetView()
     }
 
-    fun setUpviewmodelWithRECYLERView(view:View){
-        //here in ViewModelProvider(this...)
-       var myViewModel=ViewModelProvider(requireActivity(),ViewModelProvider.AndroidViewModelFactory.getInstance(activity?.application!!)).get(MyViewModel_For_pdflist::class.java)
-
-        myViewModel.getpdflistttt().observe(viewLifecycleOwner, object : Observer<ArrayList<Items_pdfs>> {
-            override fun onChanged(pdflist: ArrayList<Items_pdfs>?) {
-                if (pdflist?.isEmpty()!!) {
-                    Log.d("3tubuenfe", "3ufufbkscsdc")
-                    binding?.emptyView?.visibility = View.VISIBLE
-                    binding?.emptyText?.visibility = View.VISIBLE
-                    if(Build.VERSION.SDK_INT==Build.VERSION_CODES.Q) {
-                        binding?.emptyText?.text = "Only created or modified files will be shown here"
-                    }
-
-                    binding?.pdfListProgress?.visibility = View.GONE
-                } else {
-                    Log.d("3u8hfjsncsjcisj8", "cnsncjnj2")
-
-                    myAdapter = MyAdapter(requireContext(), pdflist)
-                    recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-                    recyclerView?.adapter = myAdapter
-
-                    binding?.pdfListProgress?.visibility = View.GONE
-                    binding?.emptyView?.visibility = View.GONE
-                    binding?.emptyText?.visibility = View.GONE
-
-                   // var textView: TextView = view.findViewById(R.id.textviewALLL)
-                    binding?.textviewALLL?.text = "All (" + pdflist?.size.toString() + ")"
-
-                    activity?.runOnUiThread {
-                        myAdapter?.notifyDataSetChanged()
-
-                    }
-                    searchPdfs(pdflist)
-                    //this method for  setCustomClickListner method that is defined in MyAdapter class
-                    myAdapterClickListner(myAdapter!!, pdflist)
-                }
-
-            }
-        })
-
-
-       // myViewModel.viewModelScope.cancel(null)
-
-    }
     fun setUpviewmodelWithRECYLERView(){
         //here in ViewModelProvider(this...)
         var myViewModel=ViewModelProvider(requireActivity(),ViewModelProvider.AndroidViewModelFactory.getInstance(activity?.application!!)).get(MyViewModel_For_pdflist::class.java)
-
+        binding?.pdfListProgress?.visibility = View.VISIBLE
         myViewModel.getpdflistttt().observe(viewLifecycleOwner, object : Observer<ArrayList<Items_pdfs>> {
             override fun onChanged(pdflist: ArrayList<Items_pdfs>?) {
+
+
                 if (pdflist?.isEmpty()!!) {
                     Log.d("3tubuenfe", "3ufufbkscsdc")
                     binding?.emptyView?.visibility = View.VISIBLE
@@ -638,7 +595,9 @@ class pdf_list_Fragment : Fragment() {
         /**REQUESTING MANAGE_EXTERNAL_FILES PERMISSION FOR ACCESS ALL FILES/PDFs*/
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R) {
             if (Environment.isExternalStorageManager()) {
-              //  Toast.makeText(requireContext(), "Manage_Permission granted", Toast.LENGTH_SHORT).show()
+//                binding?.permissionRequestTextview?.visibility = View.GONE
+//                binding?.permissionnButton?.visibility = View.GONE
+                binding?.permissionLayout?.visibility = View.GONE
 
                 Log.d("sdljsds","${myAdapter?.itemCount}")
                   if(myAdapter?.itemCount==null) {
@@ -654,7 +613,14 @@ class pdf_list_Fragment : Fragment() {
             } else {
              //   Toast.makeText(requireContext(), "Manage_Permission NOT granted", Toast.LENGTH_SHORT).show()
                 val uri = Uri.parse("package:" + activity?.getPackageName())
-                startActivity(Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,uri))
+
+//                binding?.permissionRequestTextview?.visibility = View.VISIBLE
+//                binding?.permissionnButton?.visibility = View.VISIBLE
+                binding?.permissionLayout?.visibility = View.VISIBLE
+                binding?.pdfListProgress?.visibility = View.GONE
+                binding?.permissionnButton?.setOnClickListener {
+                    startActivity(Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,uri))
+                }
             }
         }//END OF IF BLOCK WHERE WE USE CONDITION FOR ANDROID R.
     }

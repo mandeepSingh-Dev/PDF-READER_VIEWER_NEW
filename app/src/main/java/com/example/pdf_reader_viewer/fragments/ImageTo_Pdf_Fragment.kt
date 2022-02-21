@@ -1,17 +1,14 @@
 package com.example.pdf_reader_viewer.fragments
 
 import android.annotation.SuppressLint
-import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.os.FileUtils
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,8 +32,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.*
-import java.io.File
-import java.io.FileOutputStream
 import java.io.OutputStream
 import kotlin.collections.ArrayList
 
@@ -262,7 +257,6 @@ class ImageTo_Pdf_Fragment : DialogFragment() {
                 Toast.makeText(requireContext(), "No images selected", Toast.LENGTH_SHORT)
                     .show()
             }
-              Toast.makeText(requireContext(),"sidhfsfds",Toast.LENGTH_LONG).show()
           }
         alertdialogBuilder.setView(view)
             .setCancelable(true)

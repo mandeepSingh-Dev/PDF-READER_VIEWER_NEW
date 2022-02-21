@@ -7,11 +7,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.pdf_reader_viewer.RecylerViewClasses.Items_pdfs
-import com.example.pdf_reader_viewer.UtilClasses.Read_Pdf_Files
 import kotlinx.coroutines.async
-import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
 
 //ViewModel class for getting livedataPDFList from Read_Pdf_Files repositry
 class MyViewModel_For_pdflist(application: Application):AndroidViewModel(application)
@@ -49,8 +46,8 @@ Log.d("23f0jgf",job.isActive.toString())
 
     override fun onCleared() {
         super.onCleared()
-        Log.d("2f7h3uvch","cleared")
-        Toast.makeText(application1,"cleared",Toast.LENGTH_LONG).show()
+      //  Log.d("2f7h3uvch","cleared")
+       // Toast.makeText(application1,"cleared",Toast.LENGTH_LONG).show()
     }
 
 

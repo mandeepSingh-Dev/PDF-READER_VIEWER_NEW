@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity_ViewPagerHolder"
+    tools:context="com.example.pdf_reader_viewer.MainActivity_ViewPagerHolder"
     >
 
 
@@ -35,7 +35,7 @@
            android:id="@+id/appLOGO"
            android:layout_width="35dp"
            android:layout_height="35dp"
-           android:src="@drawable/ic_pdficonfree"
+           android:src="@drawable/extpdficon2"
            android:layout_marginLeft="14dp"
          android:layout_marginTop="14dp"
           android:layout_weight="1"

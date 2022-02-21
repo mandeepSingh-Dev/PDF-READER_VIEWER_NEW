@@ -2,7 +2,6 @@ package com.example.pdf_reader_viewer.Roomclasses.Room_For_BOOKMARKS
 
 import android.content.Context
 import androidx.room.Database
-import androidx.room.DeleteTable
 import androidx.room.Room
 import androidx.room.RoomDatabase
 

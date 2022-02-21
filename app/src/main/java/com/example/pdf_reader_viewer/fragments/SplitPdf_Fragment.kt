@@ -26,7 +26,6 @@ import com.example.pdf_reader_viewer.UtilClasses.PDFProp
 import com.example.pdf_reader_viewer.UtilClasses.PdfOperations
 import com.example.pdf_reader_viewer.databinding.SplitpdfFragmentBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.tom_roush.pdfbox.pdmodel.PDDocument
 import kotlinx.coroutines.*
 import java.io.OutputStream
 
@@ -301,7 +300,7 @@ class SplitPdf_Fragment : Fragment() {
                             } catch (e: Exception) {
                                 Toast.makeText(
                                     requireContext(),
-                                    e.cause.toString(),
+                                    e.message.toString(),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }

@@ -9,20 +9,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.R
 import com.example.pdf_reader_viewer.RecylerViewClasses.Items_pdfs
-import com.example.pdf_reader_viewer.RecylerViewClasses.MyAdapter
 import com.example.pdf_reader_viewer.RecylerViewClasses.MyAdapter_ForMerge
 import com.example.pdf_reader_viewer.UtilClasses.PDFProp
 import com.example.pdf_reader_viewer.UtilClasses.PdfOperations
@@ -325,7 +320,6 @@ class MergePdfs_Fragment : Fragment() {
             //checking pdfname is empty or not
             if (pdfNamee.isEmpty()) {
                 Log.d("38fg3bf", pdfNamee)
-                Toast.makeText(requireContext(), "name is null", Toast.LENGTH_SHORT).show()
                 getNameinputlayoutMERGE?.error = "Invalid Name"
             } else {
                 //creating intent for launcher with pdfnamee
@@ -340,8 +334,6 @@ class MergePdfs_Fragment : Fragment() {
                     //checking password is empty or not
                     if (password.isEmpty()) {
                         secureinputLayout1?.error = "please enter password."
-                        Toast.makeText(requireContext(), "password is null", Toast.LENGTH_SHORT)
-                            .show()
                     } else {
                         alertDialog?.hide()
                         Log.d("38fh3ifgv3fg3f37fgh", selectedPdf_list?.size.toString())
@@ -356,21 +348,17 @@ class MergePdfs_Fragment : Fragment() {
                             Toast.makeText(requireContext(),"please select Two or more PDFs",Toast.LENGTH_LONG).show()
                         }
                         //launcher4.launch(intent)
-
-                        Toast.makeText(requireContext(), "password is not null", Toast.LENGTH_SHORT)
-                            .show()
-
                     }
                 }
                 //else merge without encrypted password
                 else {
                     password = "NULL"
-                    Toast.makeText(requireContext(), "chip is not checked", Toast.LENGTH_SHORT).show()
+                  //  Toast.makeText(requireContext(), "chip is not checked", Toast.LENGTH_SHORT).show()
                     alertDialog?.hide()
                     Log.d("38fh3ifgv3fg3f37fgh", selectedPdf_list?.size.toString())
                     //here NULL means password and pdf will merge without password Encrypted
                    // launcherMethod("NULL").launch(intent)
-                    Toast.makeText(requireContext(),"${selectedPdf_list?.size} PDFs selected",Toast.LENGTH_LONG).show()
+                //    Toast.makeText(requireContext(),"${selectedPdf_list?.size} PDFs selected",Toast.LENGTH_LONG).show()
                     if(selectedPdf_list?.size!! > 1) {
                         launcher4.launch(intent)
                     }else {
@@ -434,7 +422,7 @@ class MergePdfs_Fragment : Fragment() {
             }//if block for output stream null or not
         }
             }catch (e:Exception){
-                Toast.makeText(requireContext(),e.message.toString(),Toast.LENGTH_LONG).show()
+               // Toast.makeText(requireContext(),e.message.toString(),Toast.LENGTH_LONG).show()
             }
     })
 
@@ -451,7 +439,8 @@ class MergePdfs_Fragment : Fragment() {
             }
         })
 */
-        myAdapter?.setMCustomClickListenr(object: MCustomOnClickListener {
+        myAdapter?.setMCustomClickListenr(object:
+            com.example.pdf_reader_viewer.MCustomOnClickListener {
             override fun onClick(position: Int) {
 //
 //               var view =  LayoutInflater.from(requireContext()).inflate(R.layout.list_merge_item,activity?.findViewById(R.id.content),false)

@@ -25,7 +25,7 @@
         android:theme="@style/Theme.PDFREADER_VIEWER"
         android:uiOptions="splitActionBarWhenNarrow">
         <activity
-            android:name=".SettingsActviity"
+            android:name="com.Pdf_reader_editor.pdf_reader_viewer.SettingsActviity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen.SplashScreen"
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PdfView_Activity"
+            android:name="com.Pdf_reader_editor.pdf_reader_viewer.PdfView_Activity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -58,7 +58,7 @@
 
         </activity>
         <activity
-            android:name=".MainActivity_ViewPagerHolder"
+            android:name="com.example.pdf_reader_viewer.MainActivity_ViewPagerHolder"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,7 +66,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PdfsTools_Activity" /> <!-- android:screenOrientation = "portrait" -->
+        <activity android:name="com.Pdf_reader_editor.pdf_reader_viewer.PdfsTools_Activity" /> <!-- android:screenOrientation = "portrait" -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

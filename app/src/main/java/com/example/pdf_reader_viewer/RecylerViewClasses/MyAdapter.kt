@@ -6,11 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.PdfView_Activity
 import com.example.pdf_reader_viewer.PdfsTools_Activity
 import com.example.pdf_reader_viewer.R
@@ -34,7 +32,7 @@ class MyAdapter( context1:Context,pdfList1:ArrayList<Items_pdfs>):RecyclerView.A
     var bottomsheetDialogue:BottomSheetDialog?=null
     var pdfNamebottomsheet:TextView?=null
     var customOnClickListener:CustomOnClickListener?=null
-    var mCustomOnClickListener:MCustomOnClickListener?=null
+    var mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener?=null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -91,7 +89,7 @@ class MyAdapter( context1:Context,pdfList1:ArrayList<Items_pdfs>):RecyclerView.A
             mCustomOnClickListener?.onClick(position)
         }
         pdfNamebottomsheet?.setOnClickListener {
-            var intent=Intent(context!!,PdfsTools_Activity::class.java)
+            var intent=Intent(context!!, PdfsTools_Activity::class.java)
             intent.putExtra("pdfName",title)
             context?.startActivity(intent)
 
@@ -121,7 +119,7 @@ class MyAdapter( context1:Context,pdfList1:ArrayList<Items_pdfs>):RecyclerView.A
         this.customOnClickListener=customOnClickListener
     }
 
-    fun setMCustomClickListenr(mCustomOnClickListener: MCustomOnClickListener)
+    fun setMCustomClickListenr(mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener)
     {
         this.mCustomOnClickListener=mCustomOnClickListener
     }

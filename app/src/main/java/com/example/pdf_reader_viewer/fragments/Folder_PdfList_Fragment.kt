@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -16,7 +15,6 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.PdfView_Activity
 import com.example.pdf_reader_viewer.PdfsTools_Activity
 import com.example.pdf_reader_viewer.R
@@ -102,7 +100,8 @@ class Folder_PdfList_Fragment : Fragment() {
                                LinearLayoutManager(requireContext())
                            binding?.folderPdfRecyclerView?.adapter = myAdpater
 
-                           myAdpater?.setMCustomClickListenr(object : MCustomOnClickListener {
+                           myAdpater?.setMCustomClickListenr(object :
+                               com.example.pdf_reader_viewer.MCustomOnClickListener {
                                override fun onClick(position: Int) {
                                    Log.d("3iegnv3me,wv", position.toString())
                                    pdfName1_bottomsheet.setText(it.get(position).title)

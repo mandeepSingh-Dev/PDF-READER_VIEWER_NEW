@@ -1,35 +1,27 @@
 package com.example.pdf_reader_viewer
 
 import android.annotation.SuppressLint
-import android.app.DownloadManager
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
 import android.util.Log
-import android.util.Size
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.core.content.FileProvider
 import com.example.pdf_reader_viewer.UtilClasses.NotificationUtill
 import com.example.pdf_reader_viewer.UtilClasses.PDFProp
 import com.example.pdf_reader_viewer.UtilClasses.SettingsProp
 import com.example.pdf_reader_viewer.databinding.ActivityPdfViewBinding
 import java.io.*
-import java.net.HttpURLConnection
-import java.net.URL
 
 class PdfView_Activity : AppCompatActivity() {
     var binding: ActivityPdfViewBinding? = null
@@ -79,7 +71,7 @@ class PdfView_Activity : AppCompatActivity() {
             }
         }
 
-        Toast.makeText(this, uri.toString(), Toast.LENGTH_LONG).show()
+     //   Toast.makeText(this, uri.toString(), Toast.LENGTH_LONG).show()
 
         // val pdfView = findViewById<PDFView>(R.id.pdfView)
         binding?.pdfTitle?.setText(pdftitle)
@@ -168,7 +160,7 @@ class PdfView_Activity : AppCompatActivity() {
                       NotificationUtill(this).notiofiact(urii, title)
                   }
                 else{
-                    Toast.makeText(this, title+" Downloaded",Toast.LENGTH_LONG).show()
+                //    Toast.makeText(this, title+" Downloaded",Toast.LENGTH_LONG).show()
                 }
             }
             else{
@@ -178,7 +170,7 @@ class PdfView_Activity : AppCompatActivity() {
                     NotificationUtill(this).notiofiact(urii, title)
                 }
                 else{
-                    Toast.makeText(this, title+" Downloaded",Toast.LENGTH_LONG).show()
+                  //  Toast.makeText(this, title+" Downloaded",Toast.LENGTH_LONG).show()
                 }
 
             }

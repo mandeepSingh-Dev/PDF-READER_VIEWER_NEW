@@ -13,15 +13,15 @@ class SettingsActviity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // binding= ActivitySettingsActviityBinding.inflate(LayoutInflater.from(this))
-        setContentView(com.example.pdf_reader_viewer.R.layout.setting_activity)
+        setContentView(R.layout.setting_activity)
 
         supportActionBar?.title = "settings"
-        if (findViewById<FrameLayout>(com.example.pdf_reader_viewer.R.id.framelayout) != null) {
+        if (findViewById<FrameLayout>(R.id.framelayout) != null) {
             if (savedInstanceState != null) {
                 return;
             }
             supportFragmentManager?.beginTransaction()
-                ?.add(com.example.pdf_reader_viewer.R.id.framelayout, SettingsFragment()).commit()
+                ?.add(R.id.framelayout, SettingsFragment()).commit()
         }
     }
 }

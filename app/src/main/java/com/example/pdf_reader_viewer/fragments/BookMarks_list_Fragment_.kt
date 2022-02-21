@@ -15,7 +15,6 @@ import android.widget.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.PdfView_Activity
 import com.example.pdf_reader_viewer.PdfsTools_Activity
 import com.example.pdf_reader_viewer.R
@@ -31,7 +30,6 @@ import com.example.pdf_reader_viewer.databinding.BookMarksListFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 import java.lang.Exception
 
@@ -100,7 +98,8 @@ class BookMarks_list_Fragment_ : Fragment() {
 
 
 
-                    adapter?.setMCustomClickListenr(object : MCustomOnClickListener {
+                    adapter?.setMCustomClickListenr(object :
+                        com.example.pdf_reader_viewer.MCustomOnClickListener {
                         override fun onClick(position: Int) {
                             Log.d("3iegnv3me,wv", position.toString())
                             pdfName1_bottomsheet.setText(pdflist.get(position).pdfName)

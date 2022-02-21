@@ -12,7 +12,6 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.PdfView_Activity
 import com.example.pdf_reader_viewer.R
 import com.example.pdf_reader_viewer.UtilClasses.PDFProp
@@ -24,7 +23,7 @@ class MyAdapter_ForMerge(context:Context,arrayList:ArrayList<Items_pdfs>):Recycl
 {
     var contextt=context
     var pdflist:ArrayList<Items_pdfs> = arrayList
-    var mCustomOnClickListener:MCustomOnClickListener?=null
+    var mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener?=null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewholderMerge {
@@ -99,7 +98,7 @@ class MyAdapter_ForMerge(context:Context,arrayList:ArrayList<Items_pdfs>):Recycl
 
 
     }
-    fun setMCustomClickListenr(mCustomOnClickListener: MCustomOnClickListener)
+    fun setMCustomClickListenr(mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener)
     {
         this.mCustomOnClickListener=mCustomOnClickListener
     }

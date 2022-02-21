@@ -1,12 +1,10 @@
 package com.example.pdf_reader_viewer
 
 import android.content.Intent
-import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import com.example.pdf_reader_viewer.UtilClasses.FragmentNames
 import com.example.pdf_reader_viewer.UtilClasses.PDFProp
@@ -77,7 +75,7 @@ class PdfsTools_Activity : AppCompatActivity() {
         //opens folder_pdflist_fragment without pdftitle and other details
         else if(intent.getStringExtra(PDFProp.MERGEPDF_FOLDER).equals(PDFProp.MERGEPDF_FOLDER))
         {
-            Toast.makeText(this,"merge folder",Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"merge folder",Toast.LENGTH_SHORT).show()
             var folderPdflistFragment=Folder_PdfList_Fragment()
             var bundlee = Bundle()
             bundlee.putString(PDFProp.FOLDER_KEY,PDFProp.MERGEPDF_FOLDER)
@@ -88,7 +86,7 @@ class PdfsTools_Activity : AppCompatActivity() {
         //opens folder_pdflist_fragment without pdftitle and other details
         else if(intent.getStringExtra(PDFProp.SPLITPDF_FOLDER).equals(PDFProp.SPLITPDF_FOLDER))
         {
-            Toast.makeText(this,"split folder",Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"split folder",Toast.LENGTH_SHORT).show()
             var folderPdflistFragment=Folder_PdfList_Fragment()
             var bundle = Bundle()
             bundle.putString(PDFProp.FOLDER_KEY,PDFProp.SPLITPDF_FOLDER)
@@ -98,7 +96,7 @@ class PdfsTools_Activity : AppCompatActivity() {
         //opens folder_pdflist_fragment without pdftitle and other details
         else if(intent.getStringExtra(PDFProp.CREATEDPDF_FOLDER).equals(PDFProp.CREATEDPDF_FOLDER))
         {
-            Toast.makeText(this,"split folder",Toast.LENGTH_SHORT).show()
+          //  Toast.makeText(this,"split folder",Toast.LENGTH_SHORT).show()
             var folderPdflistFragment=Folder_PdfList_Fragment()
             var bundle = Bundle()
             bundle.putString(PDFProp.FOLDER_KEY,PDFProp.CREATEDPDF_FOLDER)
@@ -109,7 +107,7 @@ class PdfsTools_Activity : AppCompatActivity() {
         //opens folder_pdflist_fragment without pdftitle and other details
         else if(intent.getStringExtra(PDFProp.ENCRYPTEDPDF_FOLDER).equals(PDFProp.ENCRYPTEDPDF_FOLDER))
         {
-            Toast.makeText(this,"split folder",Toast.LENGTH_SHORT).show()
+         //   Toast.makeText(this,"split folder",Toast.LENGTH_SHORT).show()
             var folderPdflistFragment=Folder_PdfList_Fragment()
             var bundle = Bundle()
             bundle.putString(PDFProp.FOLDER_KEY,PDFProp.ENCRYPTEDPDF_FOLDER)

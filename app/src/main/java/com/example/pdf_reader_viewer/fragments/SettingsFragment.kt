@@ -2,9 +2,7 @@ package com.example.pdf_reader_viewer.fragments
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
@@ -13,8 +11,6 @@ import androidx.preference.SwitchPreference
 import com.example.pdf_reader_viewer.R
 import com.example.pdf_reader_viewer.UtilClasses.SettingsProp
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import java.net.URI
-import java.net.URL
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

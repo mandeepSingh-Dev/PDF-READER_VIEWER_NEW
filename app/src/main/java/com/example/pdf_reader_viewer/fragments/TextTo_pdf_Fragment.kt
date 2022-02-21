@@ -1,7 +1,5 @@
 package com.example.pdf_reader_viewer.fragments
 
-import android.R.attr.textColor
-import android.R.attr.textSize
 import android.content.Context
 import android.content.Intent
 import android.graphics.*

@@ -2,7 +2,6 @@
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -14,24 +13,17 @@ import android.view.*
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import androidx.viewpager2.widget.ViewPager2
 import com.example.pdf_reader_viewer.UtilClasses.FragmentNames
 import com.example.pdf_reader_viewer.UtilClasses.ViewAnimation
 import com.example.pdf_reader_viewer.ViewPagerAdapter.MyFragmentStateAdapter
 import com.example.pdf_reader_viewer.databinding.ActivityMainBinding
-import com.google.android.gms.oss.licenses.OssLicensesActivity
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import java.util.jar.Manifest
 
  class MainActivity_ViewPagerHolder : AppCompatActivity()
  {
@@ -83,7 +75,8 @@ import java.util.jar.Manifest
                  when(it.itemId){
 
                      R.id.settingMenuitem -> {
-                         startActivity(Intent(this,SettingsActviity::class.java))
+                         startActivity(Intent(this,
+                             com.example.pdf_reader_viewer.SettingsActviity::class.java))
                          return@setOnMenuItemClickListener true
                      }
                    /*  R.id.darkmodeMenuitem -> {
@@ -127,14 +120,16 @@ import java.util.jar.Manifest
              animate_fab_buttons()
          }
          binding?.fab2ImagetoPdf?.setOnClickListener {
-             var intent=Intent(applicationContext,PdfsTools_Activity::class.java)
+             var intent=Intent(applicationContext,
+                 com.example.pdf_reader_viewer.PdfsTools_Activity::class.java)
 
              intent.putExtra(FragmentNames.OPEN_IMGTOPDF_FRAGMENT, FragmentNames.OPEN_IMGTOPDF_FRAGMENT)
              startActivity(intent)
              Log.d("3igwn3bg","mskmsk")
          }
          binding?.fab3Createpdf?.setOnClickListener {
-             var intent= Intent(applicationContext,PdfsTools_Activity::class.java)
+             var intent= Intent(applicationContext,
+                 com.example.pdf_reader_viewer.PdfsTools_Activity::class.java)
              intent.putExtra(FragmentNames.OPEN_TEXTTOPDF_FRAGMENT, FragmentNames.OPEN_TEXTTOPDF_FRAGMENT)
              startActivity(intent)
          }
@@ -201,13 +196,13 @@ import java.util.jar.Manifest
          /**REQUESTING MANAGE_EXTERNAL_FILES PERMISSION FOR ACCESS ALL FILES/PDFs*/
          if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R) {
              if (Environment.isExternalStorageManager()) {
-                 Toast.makeText(this, "Manage_Permission granted", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(this, "Manage_Permission granted", Toast.LENGTH_SHORT).show()
 
                  var sharedprefrence = getSharedPreferences("managed", Context.MODE_PRIVATE)
                    sharedprefrence.edit().putBoolean("MANGEEEGED",true).apply()
 
              } else {
-                 Toast.makeText(this, "Manage_Permission NOT granted", Toast.LENGTH_SHORT).show()
+              //   Toast.makeText(this, "Manage_Permission NOT granted", Toast.LENGTH_SHORT).show()
                 val uri = Uri.parse("package:" + getPackageName())
                  startActivity(Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,uri))
              }

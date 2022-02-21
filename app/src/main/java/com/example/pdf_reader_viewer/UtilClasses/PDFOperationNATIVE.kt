@@ -8,8 +8,6 @@ import android.graphics.pdf.PdfDocument.PageInfo
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import android.util.Log
-import android.view.View
-import com.google.android.material.internal.ViewUtils.getContentView
 import java.io.OutputStream
 
 

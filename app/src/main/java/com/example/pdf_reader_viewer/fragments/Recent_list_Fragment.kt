@@ -1,28 +1,20 @@
 package com.example.pdf_reader_viewer.fragments
 
 import android.app.AlertDialog
-import android.content.ClipData
-import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pdf_reader_viewer.*
-import com.example.pdf_reader_viewer.RecylerViewClasses.Items_pdfs
-import com.example.pdf_reader_viewer.RecylerViewClasses.MyAdapter
 import com.example.pdf_reader_viewer.RecylerViewClasses.MyAdapter_RecentLists
 import com.example.pdf_reader_viewer.Roomclasses.Room_For_BOOKMARKS.Items_Bookmarks
 import com.example.pdf_reader_viewer.Roomclasses.Room_For_BOOKMARKS.MyRoomDatabase2
@@ -33,9 +25,7 @@ import com.example.pdf_reader_viewer.UtilClasses.FragmentNames
 import com.example.pdf_reader_viewer.UtilClasses.PDFProp
 import com.example.pdf_reader_viewer.databinding.RecentListpdfFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 import java.lang.Exception
 
@@ -83,7 +73,7 @@ class Recent_list_Fragment : Fragment() {
         intent=Intent(Intent.ACTION_SEND)
         intent?.type="application/pdf"
 
-         CoroutineScope(Dispatchers.IO).async {
+         CoroutineScope(Dispatchers.IO).launch {
              recentdbList = MyRoomDatabase.getInstance(requireContext())?.daoMethod()?.query()
 
            withContext(Dispatchers.Main) {
@@ -115,7 +105,8 @@ class Recent_list_Fragment : Fragment() {
                                binding?.emptyText?.visibility = View.GONE
                                binding?.emptyText2?.visibility = View.GONE
 
-                           myAdapter?.setMCustomClickListenr(object : MCustomOnClickListener {
+                           myAdapter?.setMCustomClickListenr(object :
+                               com.example.pdf_reader_viewer.MCustomOnClickListener {
                                override fun onClick(position: Int) {
                                    Log.d("3iegnv3me,wv", position.toString())
                                    pdfName1_bottomsheet?.setText(pdflist.get(position).pdfName)

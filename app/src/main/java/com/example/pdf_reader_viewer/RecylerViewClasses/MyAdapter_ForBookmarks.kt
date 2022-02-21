@@ -3,16 +3,12 @@ package com.example.pdf_reader_viewer.RecylerViewClasses
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.PdfView_Activity
 import com.example.pdf_reader_viewer.R
 import com.example.pdf_reader_viewer.Roomclasses.Room_For_BOOKMARKS.Items_Bookmarks
@@ -32,7 +28,7 @@ class MyAdapter_ForBookmarks(context: Context,arrayList:ArrayList<Items_Bookmark
     var bottomsheetView:View?=null
     var bottomsheetDialogue:BottomSheetDialog?=null
     var pdfNamebottomsheet:TextView?=null
-    var mCustomOnClickListener:MCustomOnClickListener?=null
+    var mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener?=null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewholder {
@@ -103,7 +99,7 @@ class MyAdapter_ForBookmarks(context: Context,arrayList:ArrayList<Items_Bookmark
         var menubutton=itemView.findViewById<ImageView>(R.id.threedots_ImageButton)
 
     }
-    fun setMCustomClickListenr(mCustomOnClickListener: MCustomOnClickListener)
+    fun setMCustomClickListenr(mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener)
     {
         this.mCustomOnClickListener=mCustomOnClickListener
     }

@@ -4,11 +4,9 @@ import android.annotation.SuppressLint
 import android.app.*
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.util.Log
-import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.pdf_reader_viewer.R
@@ -45,11 +43,15 @@ class NotificationUtill(activity: Activity) {
 
 
             notificationbuilder = NotificationCompat.Builder(activity.applicationContext, channelId)
-                .setSmallIcon(R.drawable.ic__422509_acorbat_logo_pdf_file_icon)
+                .setSmallIcon(R.mipmap.ic_launcher_foreground)
                 .setContentTitle("file downloaded")
                 .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
                 .setContentText(pdftitlee)
-            //builder.setOngoing(true);
+                .setColor(activity?.getColor(R.color.tabcolor))
+                .setAutoCancel(true)
+                .setColorized(true)
+
+                //builder.setOngoing(true);
                .setPriority(NotificationCompat.PRIORITY_HIGH)
 
                 /*.setContentTitle("File Downloaded")

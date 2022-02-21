@@ -3,15 +3,12 @@ package com.example.pdf_reader_viewer.RecylerViewClasses
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pdf_reader_viewer.MCustomOnClickListener
 import com.example.pdf_reader_viewer.PdfView_Activity
 import com.example.pdf_reader_viewer.R
 import com.example.pdf_reader_viewer.Roomclasses.Room_For_RecentPDFs.Items_RecentPdfs
@@ -19,16 +16,14 @@ import com.example.pdf_reader_viewer.Roomclasses.Room_For_RecentPDFs.MyRoomDatab
 import com.example.pdf_reader_viewer.UtilClasses.ConversionandUtilsClass
 import com.example.pdf_reader_viewer.UtilClasses.PDFProp
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MyAdapter_RecentLists(context: Context,arrayList:ArrayList<Items_RecentPdfs>):RecyclerView.Adapter<MyAdapter_RecentLists.MyViewholder>()
 {
     var context=context
     var recentlist=arrayList
-    var mCustomOnClickListener:MCustomOnClickListener?=null
+    var mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener?=null
     var bottomsheetView:View?=null
     var bottomsheetDialogue:BottomSheetDialog?=null
     var pdfNamebottomsheet:TextView?=null
@@ -106,7 +101,7 @@ class MyAdapter_RecentLists(context: Context,arrayList:ArrayList<Items_RecentPdf
         var menubutton=itemView.findViewById<ImageView>(R.id.threedots_ImageButton)
     }
 
-    fun setMCustomClickListenr(mCustomOnClickListener: MCustomOnClickListener)
+    fun setMCustomClickListenr(mCustomOnClickListener: com.example.pdf_reader_viewer.MCustomOnClickListener)
     {
         this.mCustomOnClickListener=mCustomOnClickListener
     }

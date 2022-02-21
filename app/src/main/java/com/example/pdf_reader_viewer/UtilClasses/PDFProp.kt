@@ -1,7 +1,5 @@
 package com.example.pdf_reader_viewer.UtilClasses
 
-import java.io.File
-
 //util class for Intent share keys that are uses for sending pdf properties
 class PDFProp()
 {

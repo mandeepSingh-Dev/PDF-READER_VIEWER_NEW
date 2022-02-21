@@ -1,9 +1,7 @@
 package com.example.pdf_reader_viewer.Roomclasses.Room_For_BOOKMARKS
 
-import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.pdf_reader_viewer.Roomclasses.Room_For_RecentPDFs.Items_RecentPdfs
 
 @Dao
 interface Dao_Bookmarks {

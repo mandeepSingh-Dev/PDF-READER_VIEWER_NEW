@@ -3,10 +3,7 @@ package com.example.pdf_reader_viewer.UtilClasses
 import android.animation.Animator
 
 import android.animation.AnimatorListenerAdapter
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 
 
 class ViewAnimation {

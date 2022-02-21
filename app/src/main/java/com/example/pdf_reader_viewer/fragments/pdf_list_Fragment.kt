@@ -9,7 +9,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.provider.MediaStore
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,20 +16,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.MimeTypeMap
 import android.widget.*
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.pdf_reader_viewer.*
 import com.example.pdf_reader_viewer.RecylerViewClasses.Items_pdfs
 import com.example.pdf_reader_viewer.RecylerViewClasses.MyAdapter
@@ -40,10 +35,8 @@ import com.example.pdf_reader_viewer.UtilClasses.*
 import com.example.pdf_reader_viewer.databinding.PdfListFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.*
 import java.util.*
-import java.util.jar.Manifest
 
 
 class pdf_list_Fragment : Fragment() {
@@ -266,7 +259,7 @@ class pdf_list_Fragment : Fragment() {
 
         mergeLinearLayout?.setOnClickListener {
 
-            var intent=Intent(context,PdfsTools_Activity::class.java)
+            var intent=Intent(context, PdfsTools_Activity::class.java)
 
             intent.putExtra(FragmentNames.OPEN_MERGE_FRAGMENT,FragmentNames.OPEN_MERGE_FRAGMENT)
                   .putExtra(PDFProp.PDF_TITLE,pdflist?.get(position)?.title)
@@ -280,7 +273,7 @@ class pdf_list_Fragment : Fragment() {
         //this will send user to PdfTools_Activity----> Split Fragment with pdfuri and other data acc to position
         splitLinearLayout?.setOnClickListener {
 
-            var intent=Intent(context,PdfsTools_Activity::class.java)
+            var intent=Intent(context, PdfsTools_Activity::class.java)
 
             intent.putExtra(FragmentNames.OPEN_SPLIT_FRAGMENT,FragmentNames.OPEN_SPLIT_FRAGMENT)
                 .putExtra(PDFProp.PDF_TITLE,pdflist?.get(position)?.title)
@@ -294,7 +287,7 @@ class pdf_list_Fragment : Fragment() {
         //this will send user to PdfViewActivity with pdfuri AND pdftitle acc to position
         openLinearLayout?.setOnClickListener {
 
-            var intent=Intent(context,PdfView_Activity::class.java)
+            var intent=Intent(context, PdfView_Activity::class.java)
                 intent.setAction(PDFProp.MY_OPEN_ACTION)
             intent.putExtra(PDFProp.PDF_APPENDED_URI,pdflist?.get(position)?.appendeduri.toString())
                   .putExtra(PDFProp.PDF_TITLE,pdflist?.get(position)?.title)
@@ -460,7 +453,8 @@ class pdf_list_Fragment : Fragment() {
             }
         })
 */
-        myAdapter?.setMCustomClickListenr(object:MCustomOnClickListener {
+        myAdapter?.setMCustomClickListenr(object:
+            com.example.pdf_reader_viewer.MCustomOnClickListener {
             override fun onClick(position: Int) {
                 Log.d("3iegnv3me,wv",position.toString())
                 pdfName1_bottomsheet?.setText(pdflist.get(position).title)
@@ -644,7 +638,7 @@ class pdf_list_Fragment : Fragment() {
         /**REQUESTING MANAGE_EXTERNAL_FILES PERMISSION FOR ACCESS ALL FILES/PDFs*/
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R) {
             if (Environment.isExternalStorageManager()) {
-                Toast.makeText(requireContext(), "Manage_Permission granted", Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(requireContext(), "Manage_Permission granted", Toast.LENGTH_SHORT).show()
 
                 Log.d("sdljsds","${myAdapter?.itemCount}")
                   if(myAdapter?.itemCount==null) {
@@ -658,7 +652,7 @@ class pdf_list_Fragment : Fragment() {
                 sharedprefrence?.edit()?.putBoolean("MANGEEEGED",true)?.apply()
 
             } else {
-                Toast.makeText(requireContext(), "Manage_Permission NOT granted", Toast.LENGTH_SHORT).show()
+             //   Toast.makeText(requireContext(), "Manage_Permission NOT granted", Toast.LENGTH_SHORT).show()
                 val uri = Uri.parse("package:" + activity?.getPackageName())
                 startActivity(Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,uri))
             }

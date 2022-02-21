@@ -1,10 +1,8 @@
 package com.example.pdf_reader_viewer.UtilClasses
 
-import android.app.Application
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -32,6 +30,6 @@ class MyViewModel_for_foldderpdflist(val folderName:String,context:Context) : Vi
 
     override fun onCleared() {
         super.onCleared()
-        Toast.makeText(contextt,"folderlist_cleared",Toast.LENGTH_SHORT).show()
+       // Toast.makeText(contextt,"folderlist_cleared",Toast.LENGTH_SHORT).show()
     }
 }

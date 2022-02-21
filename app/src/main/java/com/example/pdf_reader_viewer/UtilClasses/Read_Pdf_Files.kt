@@ -5,20 +5,12 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
-import android.os.Environment
-import android.os.FileUtils
 import android.provider.MediaStore
-import android.telephony.mbms.FileInfo
 import android.util.Log
 import android.webkit.MimeTypeMap
-import android.widget.Toast
-import androidx.core.content.FileProvider
-import androidx.room.util.FileUtil
 import com.example.pdf_reader_viewer.RecylerViewClasses.Items_pdfs
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.File
-import java.io.FileOutputStream
 
 // pdfs Repositry (Means that this class is for getting pdflist from local device)
 class Read_Pdf_Files(context:Context)

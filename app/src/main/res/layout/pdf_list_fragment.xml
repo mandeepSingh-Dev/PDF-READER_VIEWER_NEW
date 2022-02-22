@@ -122,6 +122,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
+            android:visibility="gone"
             android:background="@android:color/transparent">
         <TextView
             android:id="@+id/permissionRequestTextview"

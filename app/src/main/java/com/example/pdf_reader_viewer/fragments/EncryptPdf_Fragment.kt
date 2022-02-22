@@ -75,9 +75,10 @@ class EncryptPdf_Fragment : Fragment() {
             intent.type = "application/pdf"
             intent.putExtra(Intent.EXTRA_TITLE, pdfName)
 
-                 var passwordText = binding?.edittextlayout11?.editText?.text.toString()
                        binding?.encryptButton?.setOnClickListener {
                            //only create pdf file if password is not empty
+                           var passwordText = binding?.edittextlayout11?.editText?.text.toString()
+                           Log.d("sjjdnsjkd",passwordText)
                            if (!passwordText.isEmpty()) {
                            launcher4.launch(intent)
                            } else {
@@ -155,22 +156,15 @@ class EncryptPdf_Fragment : Fragment() {
                         if (!passwordText.isEmpty()) {
                             /**here we check whether pdf is encrypted if yes then delete selected pdf and create new one with password]*/
                             var job = CoroutineScope(Dispatchers.IO).async {
-                                isEncrypted = PdfOperations(requireActivity()).createEncryptedPdf(
-                                    uri!!,
-                                    passwordText,
-                                    outputStream
-                                )
+                                isEncrypted = PdfOperations(requireActivity()).createEncryptedPdf(uri!!, passwordText, outputStream)
                                 if (isEncrypted) {
-                                    Snackbar.make(
-                                        binding?.holderContstraintlayout!!,
-                                        "PDF Encrypted",
-                                        3500
-                                    ).show()
+                                    Snackbar.make(binding?.holderContstraintlayout!!, "PDF Encrypted", 3500).show()
                                     deleteContent(uri!!)
                                 }
                             }
 
-                        } else {
+                        }
+                        else {
                             binding?.edittextlayout11?.error = "Invalid"
                         }
                     } catch (e: Exception) {

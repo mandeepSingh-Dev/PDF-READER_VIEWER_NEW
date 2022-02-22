@@ -130,7 +130,6 @@ class MergePdfs_Fragment : Fragment() {
             // Toast.makeText(requireContext(),pdfUrifromFileManager?.toString(),Toast.LENGTH_LONG).show()
         }
         val manager = activity?.supportFragmentManager
-        Log.d("wofwjhf",manager?.backStackEntryCount.toString())
             manager?.popBackStack()
        // manager?.isStateSaved
        // val fragmentPopped: Boolean = manager?.popBackStackImmediate(ImageTo_Pdf_Fragment().javaClass.name, 0)!!
@@ -209,12 +208,7 @@ class MergePdfs_Fragment : Fragment() {
                     )
                     var list = getMetadata_fromUri(pdfUrifromFileManager!!)
 
-                    selectedPdf_list?.add(
-                        Items_pdfs(
-                            list.get(0),
-                            list.get(1),
-                            pdfUrifromFileManager
-                        )
+                    selectedPdf_list?.add(Items_pdfs(list.get(0), list.get(1), pdfUrifromFileManager)
                     )
                     //   Log.d("3f3f3w",selectedPdf_list?.size.toString())
                     createrecyclerView()
@@ -298,7 +292,7 @@ class MergePdfs_Fragment : Fragment() {
         mergeDialogueButton = view.findViewById(R.id.mergeDialgueButton)
         dialogueMergeTitle = view.findViewById(R.id.dialogueMergeTITLE)
 
-        dialogueMergeTitle?.text = "Merging "+selectedPdf_list?.size.toString()+" PDFs"
+       // dialogueMergeTitle?.text = "Merging "+selectedPdf_list?.size.toString()+" PDFs"
 
         // getNameinputlayoutMERGE = view.findViewById(R.id.getNameinputlayoutMERGE)
         chip?.setOnClickListener {

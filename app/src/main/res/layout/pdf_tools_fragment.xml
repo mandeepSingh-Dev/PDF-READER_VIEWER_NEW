@@ -25,25 +25,37 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@id/pdfTools"
-        android:baselineAligned="false">
+        app:layout_constraintBottom_toTopOf="@id/container2"
+        android:baselineAligned="false"
+        android:padding="10dp">
 
         <!-- Merge Linearlayout-->
-      <LinearLayout
+      <androidx.cardview.widget.CardView
           android:id="@+id/MErgerlinearlay"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-      android:orientation="vertical"
-          android:elevation="10dp"
-          android:background="@drawable/rippldeimage"
-       android:gravity="center"
-          android:layout_weight="1">
+          android:background="@color/CardBackgroundcolor"
+          android:layout_weight="1"
+          app:cardElevation="4dp"
+          app:cardCornerRadius="10dp"
+          >
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@drawable/rippldeimage"
+              android:layout_gravity="center"
+              android:paddingTop="50dp"
+              android:paddingBottom="50dp"
+             >
           <ImageView
               android:id="@+id/mergeImage"
-              android:layout_width="60dp"
-              android:layout_height="60dp"
+              android:layout_width="72dp"
+              android:layout_height="72dp"
               android:src="@drawable/ic_baseline_merge_24"
               android:contentDescription="TODO" />
           <TextView
@@ -55,20 +67,32 @@
               android:ellipsize="end"
               android:textAlignment="center"
               android:layout_gravity="center"/>
-      </LinearLayout>
+          </LinearLayout>
+      </androidx.cardview.widget.CardView>
       <!-- Split Linearlayout-->
-      <LinearLayout
+
+      <androidx.cardview.widget.CardView
           android:id="@+id/splitlinearlay"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:orientation="vertical"
-          android:background="@drawable/rippldeimage"
+          android:background="@color/CardBackgroundcolor"
           android:layout_weight="1"
-          android:gravity="center" >
+          android:gravity="center"
+          android:layout_marginLeft="10dp"
+          app:cardElevation="4dp"
+          app:cardCornerRadius="10dp">
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_gravity="center"
+              android:background="@drawable/rippldeimage"
+              android:paddingTop="50dp"
+              android:paddingBottom="50dp">
           <ImageView
               android:id="@+id/splitImage"
-              android:layout_width="60dp"
-              android:layout_height="60dp"
+              android:layout_width="72dp"
+              android:layout_height="72dp"
               android:src="@drawable/ic_round_call_split_24"/>
           <TextView
               android:id="@+id/splittext"
@@ -79,7 +103,8 @@
               android:ellipsize="end"
               android:textAlignment="center"
               android:layout_gravity="center"/>
-      </LinearLayout>
+          </LinearLayout>
+      </androidx.cardview.widget.CardView>
   </LinearLayout>
     <!--container2-->
     <LinearLayout
@@ -87,58 +112,87 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="-4dp"
+        android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container1"
+        android:padding="10dp"
         >
         <!-- Merge Linearlayout-->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:id="@+id/encryptlinearlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/rippldeimage"
+            android:background="@color/CardBackgroundcolor"
             android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="10dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rippldeimage"
+                android:layout_gravity="center"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                >
             <ImageView
                 android:id="@+id/encryptImage"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:src="@drawable/ic_baseline_enhanced_encryption_24"/>
             <TextView
                 android:id="@+id/encrypttext"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lock PDFs"
                 android:textColor="@color/textcolor"
                 android:ellipsize="end"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
-        </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
         <!-- Split Linearlayout-->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:id="@+id/imageto_pdflinearlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/rippldeimage"
+            android:background="@color/CardBackgroundcolor"
             android:layout_weight="1"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="10dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rippldeimage"
+                android:layout_gravity="center"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp">
+
             <ImageView
                 android:id="@+id/imageto_pdfImage"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:src="@drawable/ic_baseline_image_24"/>
             <TextView
                 android:id="@+id/imageto_pdftext"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Scan to PDF"
                 android:textColor="@color/textcolor"
                 android:ellipsize="end"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
-        </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
  <!--   <TextView
         android:id="@+id/toolsFoldersText"

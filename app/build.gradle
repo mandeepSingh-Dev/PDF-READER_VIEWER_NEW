@@ -13,7 +13,7 @@ android {
     viewBinding {enabled = true}
 
     defaultConfig {
-        applicationId "com.example.pdf_reader_viewer"
+        applicationId "com.product.pdf_reader_viewer"
         minSdk 21
         targetSdk 31
         versionCode 1

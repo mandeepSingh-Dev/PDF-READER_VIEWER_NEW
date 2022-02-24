@@ -5,7 +5,7 @@
     android:id="@+id/parentPDFTOOLactivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Pdf_reader_editor.pdf_reader_viewer.PdfsTools_Activity">
+    tools:context="com.product.pdf_reader_viewer.PdfsTools_Activity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

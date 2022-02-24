@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.EncryptPdf_Fragment"
+    tools:context="com.product.pdf_reader_viewer.fragments.EncryptPdf_Fragment"
     >
     <ScrollView
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                     android:layout_height="40dp"
                     android:src="@drawable/ic_baseline_add_circle_outline_24"
                     android:layout_gravity="end"
-                    android:layout_marginRight="50dp"
+                    android:layout_marginRight="10dp"
                     app:tint="@color/black" />
             </com.google.android.material.appbar.MaterialToolbar>
 

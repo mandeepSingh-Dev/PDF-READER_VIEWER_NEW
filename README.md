@@ -11,9 +11,13 @@ S.A.F(Storage Access Framework),
 • Text to PDF, 
 
 • Mutliple Images to one PDF,
+
 • Encrypt the pdf (using third party PDF Api ),
+
 • Share PDFs , Shows Recent Seen PDF,
+
 • Bookmarks the PDF
+
 • Dark Mod
 ************************************************
 

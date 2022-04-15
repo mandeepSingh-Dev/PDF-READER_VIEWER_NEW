@@ -1,12 +1,15 @@
 # PDF-READER_VIEWER_NEW
-New Pdfapp
 ***********************************************
 Features :- 
 • Read PDFs from Shared Storage and 
 S.A.F(Storage Access Framework),
+
 • Merge the multiple PDFs ,
+
 • Split the PDFs into multiple PDFs,
+
 • Text to PDF, 
+
 • Mutliple Images to one PDF,
 • Encrypt the pdf (using third party PDF Api ),
 • Share PDFs , Shows Recent Seen PDF,
